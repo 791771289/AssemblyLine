@@ -14,7 +14,7 @@ public class Hands : MonoBehaviour {
 
     void Start()
     {
-        // Pull components from the steamvr controller
+        // Pull components from the steamvr object
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         rb = GetComponent<Rigidbody>();
     }
@@ -25,7 +25,7 @@ public class Hands : MonoBehaviour {
         // If the object is a part of a GrabbableObject class and can be picked up and exists
         if(col.transform.GetComponent<GrabbableObject>() != null)
         {
-            // Grabgs the collider's rigidbody
+            // Grabs the collider's rigidbody
             Rigidbody colRB = col.transform.GetComponent<Rigidbody>();
 
             // If the player wants to control the object by holding the trigger down
