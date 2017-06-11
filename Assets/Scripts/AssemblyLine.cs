@@ -3,6 +3,12 @@ using System.Collections;
 
 public class AssemblyLine : MonoBehaviour {
 
+    // Assembly Line crossing speed for increased difficulty and/or slow paced gameplay
+    public float speed = 1f;
+
+    // Inverts moving directtion for more combinations
+    public bool inverted = false;
+
     // All three axis to decide what force to add to the grabbable object
     public enum AXIS { RED, GREEN, BLUE}
     public AXIS currentAxis = AXIS.RED;
@@ -18,12 +24,28 @@ public class AssemblyLine : MonoBehaviour {
             return;
 
         // Move the Grabbable Object across the line based around the desired axis
-        if (currentAxis == AXIS.RED) {
-            col.transform.Translate(Time.deltaTime * Vector3.right);
-        } else if (currentAxis == AXIS.BLUE) {
-            col.transform.Translate(Time.deltaTime * Vector3.forward);
-        } else {
-            col.transform.Translate(Time.deltaTime * Vector3.up);
+        // It also factors in an inverted variable to switch either forward or backwards in direction
+        switch (currentAxis)
+        {
+            case AXIS.RED:
+                if(!inverted)
+                    col.transform.Translate(Time.deltaTime * speed * Vector3.right, Space.World);
+                else
+                    col.transform.Translate(-Time.deltaTime * speed * Vector3.right, Space.World);
+                break;
+            case AXIS.BLUE:
+                if (!inverted)
+                    col.transform.Translate(Time.deltaTime * speed * Vector3.forward, Space.World);
+                else
+                    col.transform.Translate(-Time.deltaTime *speed * Vector3.forward, Space.World);
+                break;
+            case AXIS.GREEN:
+                if (!inverted)
+                    col.transform.Translate(Time.deltaTime * speed * Vector3.up, Space.World);
+                else
+                    col.transform.Translate(-Time.deltaTime * speed * Vector3.up, Space.World);
+                break;
+
         }
 
     }
