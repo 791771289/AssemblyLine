@@ -11,8 +11,18 @@ public class AssemblyLineEnd : MonoBehaviour {
     public enum ENDTYPE { CUBE, SPHERE, CAPSULE, ORIGINAL}
     public ENDTYPE currentEndType = ENDTYPE.CUBE;
 
-    // Number of ccandies that pass through this endpoint
-    private int count = 0;
+    // Number of candies that pass through this endpoint
+    private static int goodCandyCount;
+    private static int badCandyCount;
+    private static int originalCandyCount;
+
+    // Initialization
+    void Start()
+    {
+        goodCandyCount = 0;
+        badCandyCount = 0;
+        originalCandyCount = 0;
+    }
 
     // The event that takes place when the two colliders make contact
     void OnTriggerEnter(Collider col)
@@ -21,13 +31,11 @@ public class AssemblyLineEnd : MonoBehaviour {
         GrabbableObject grabbableObject = col.transform.GetComponent<GrabbableObject>();
         Candy candy = col.transform.GetComponent<Candy>();
 
-        // Do not continue because the Assembly Line only effects Grabbable Objects
+        // Do not continue because the Assembly Line only effects Grabbable Objects and Candy Objects
         if (grabbableObject == null || candy == null)
             return;
 
         // Add a count for how many items have passed the end
-        count++;
-        Debug.Log("Count: " + count);
 
         //Pull the candy enumerated type
         Candy.CANDYTYPE candyType = candy.getCandyType();
@@ -37,14 +45,17 @@ public class AssemblyLineEnd : MonoBehaviour {
            (candyType == Candy.CANDYTYPE.CUBE && currentEndType == ENDTYPE.CUBE) ||
            (candyType == Candy.CANDYTYPE.SPHERE && currentEndType == ENDTYPE.SPHERE))
         {
-            Debug.Log("Good candy");
+            goodCandyCount++;
+            Debug.Log("Candy MATCHES End");
         // If the assembly line is the original line carrying unsorted candy
         } else if(currentEndType == ENDTYPE.ORIGINAL)
         {
-            Debug.Log("Candy hit original line");
+            originalCandyCount++;
+            Debug.Log("Candy HITS Original End");
         // If the line does not match with the candy type
         } else{
-            Debug.Log("Bad Candy");
+            badCandyCount++;
+            Debug.Log("Candy DOES NOT MATCH End");
         }
 
         // Destroy the game object after it has been scored and recorded

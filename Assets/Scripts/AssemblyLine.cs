@@ -18,9 +18,11 @@ public class AssemblyLine : MonoBehaviour {
     {
         // Pull the GrabbableObject component if it exists on the collider
         GrabbableObject grabbableObject = col.transform.GetComponent<GrabbableObject>();
+        Candy candy = col.transform.GetComponent<Candy>();
 
         // Do not continue because the Assembly Line only effects Grabbable Objects
-        if (grabbableObject == null)
+        // Depends on the objects pulled from the original object or if it is being manipulated by the player
+        if (grabbableObject == null || candy == null || col.transform.parent != null)
             return;
 
         // Move the Grabbable Object across the line based around the desired axis
@@ -47,6 +49,5 @@ public class AssemblyLine : MonoBehaviour {
                 break;
 
         }
-
     }
 }
