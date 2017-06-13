@@ -38,7 +38,7 @@ public class Hands : MonoBehaviour {
             }
 
             // If the player wants to control the object by pullin the trigger up
-            if (controller.GetHairTriggerUp())
+            if (controller.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
                 // Release the collider's parent
                 col.transform.parent = null;
