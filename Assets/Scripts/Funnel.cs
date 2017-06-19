@@ -12,9 +12,6 @@ public class Funnel : MonoBehaviour {
     public GameObject wrappedCube;
     public GameObject wrappedSphere;
 
-    // A set range for random placement on the assembly line
-    private float offsetRange = .1f;
-
     // The event that takes place when the two colliders make contact
     void OnTriggerEnter(Collider col)
     {

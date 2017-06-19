@@ -44,24 +44,23 @@ public class Pointer : MonoBehaviour {
         RaycastHit hit;
         bool hitting = Physics.Raycast(ray, out hit, lineLength);
 
-        if(hit.transform.tag == "UI")
-        {
-            UpdateCursorLine(hitting, hit);
-        } else
-        {
-            // Line disabled
-            endPoint.localPosition = Vector3.zero;
-            endPoint.transform.localScale = Vector3.zero;
-        }
+        // Constantly updated set points on the line
+        lineRenderer.SetPosition(0, startPoint.position);
+        lineRenderer.SetPosition(1, endPoint.position);
+
+        // Update line state
+        UpdateCursorLine(hitting, hit);
+
     }
 
     void UpdateCursorLine(bool hitting, RaycastHit hit)
     {
-
-        if (hitting)
+        // If hitting and the tags match what the point wants to point at
+        if (hitting && hit.transform.tag == "UI")
         {
             // Line Enabled
             endPoint.position = hit.point;
+            endPoint.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else
         {
@@ -69,10 +68,6 @@ public class Pointer : MonoBehaviour {
             endPoint.localPosition = Vector3.zero;
             endPoint.transform.localScale = Vector3.zero;
         }
-
-        // Constantly updated set points on the line
-        lineRenderer.SetPosition(0, startPoint.position);
-        lineRenderer.SetPosition(1, endPoint.position);
 
     }
 }

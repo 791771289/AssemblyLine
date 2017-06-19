@@ -15,7 +15,7 @@ public class PlayspaceSwitch : MonoBehaviour {
     // Step for how much the transform moves everytime the switch is pressesd
     private float stepOffeset = 1f;
 
-    public void UpdateTransform()
+    public void UpdatePlaySpace()
     {
         if(currenttType == TYPES.UP)
         {
