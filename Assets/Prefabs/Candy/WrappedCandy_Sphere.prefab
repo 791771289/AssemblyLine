@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentType: 1
+  wrappedCandy: 1
 --- !u!135 &135000010069858558
 SphereCollider:
   m_ObjectHideFlags: 1

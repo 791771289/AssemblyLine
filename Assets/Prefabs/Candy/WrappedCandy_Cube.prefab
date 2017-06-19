@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentType: 0
+  wrappedCandy: 1
 --- !u!114 &114000011168012540
 MonoBehaviour:
   m_ObjectHideFlags: 1
