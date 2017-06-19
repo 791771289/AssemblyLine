@@ -26,7 +26,6 @@ public class Funnel : MonoBehaviour {
             return;
 
         // Random location and rotation generation
-        float offset = Random.Range(-offsetRange, offsetRange);
         float quatX = Random.Range(0, 360f);
         float quatY = Random.Range(0, 360f);
         float quatZ = Random.Range(0, 360f);

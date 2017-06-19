@@ -35,7 +35,13 @@ public class AssemblyLineEnd : MonoBehaviour {
         if (grabbableObject == null || candy == null)
             return;
 
-        // Add a count for how many items have passed the end
+        // If Candy is not wrapped then discard it
+        if (!candy.getWarppedCandy() && currentEndType != ENDTYPE.ORIGINAL)
+        {
+            Debug.Log("Unwrapped candy recorded!");
+            Destroy(col.gameObject);
+            return;
+        }
 
         //Pull the candy enumerated type
         Candy.CANDYTYPE candyType = candy.getCandyType();
