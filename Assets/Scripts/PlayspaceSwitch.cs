@@ -13,16 +13,16 @@ public class PlayspaceSwitch : MonoBehaviour {
     public Transform playSpace;
 
     // Step for how much the transform moves everytime the switch is pressesd
-    private float stepOffeset = 1f;
+    private float stepOffeset = .1f;
 
     public void UpdatePlaySpace()
     {
         if(currenttType == TYPES.UP)
         {
-            playSpace.position += new Vector3(0, 0, stepOffeset);
+            playSpace.position += new Vector3(0, 0, -stepOffeset);
         } else
         {
-            playSpace.position += new Vector3(0, 0, -stepOffeset);
+            playSpace.position += new Vector3(0, 0, stepOffeset);
         }
     }
 }

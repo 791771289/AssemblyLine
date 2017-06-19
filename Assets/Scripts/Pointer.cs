@@ -42,7 +42,7 @@ public class Pointer : MonoBehaviour {
         // Send out a ray to detect where the pointer should be pointing
         Ray ray = new Ray(startPoint.position, startPoint.forward);
         RaycastHit hit;
-        bool hitting = Physics.Raycast(ray, out hit, lineLength);
+        bool hitting = Physics.Raycast(ray, out hit, lineLength, 1);
 
         // Constantly updated set points on the line
         lineRenderer.SetPosition(0, startPoint.position);
@@ -60,7 +60,6 @@ public class Pointer : MonoBehaviour {
         {
             // Line Enabled
             endPoint.position = hit.point;
-            endPoint.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else
         {
