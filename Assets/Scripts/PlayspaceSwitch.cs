@@ -3,26 +3,21 @@ using System.Collections;
 
 public class PlayspaceSwitch : MonoBehaviour {
 
-    // Types of transfrom changes
-    // UP - closer to the assembly line
-    // DOWN - further away
-	public enum TYPES { UP, DOWN}
-    public TYPES currenttType;
+    public Material idleColor;
+    public Material changingTransformColor;
 
-    // Playspace transform to manipulate
-    public Transform playSpace;
-
-    // Step for how much the transform moves everytime the switch is pressesd
-    private float stepOffeset = .1f;
-
-    public void UpdatePlaySpace()
+    void Start()
     {
-        if(currenttType == TYPES.UP)
-        {
-            playSpace.position += new Vector3(0, 0, -stepOffeset);
-        } else
-        {
-            playSpace.position += new Vector3(0, 0, stepOffeset);
-        }
+        GetComponent<MeshRenderer>().material = idleColor;
+    }
+
+    public void Highlight()
+    {
+        GetComponent<MeshRenderer>().material = changingTransformColor;
+    }
+
+    public void Reset()
+    {
+        GetComponent<MeshRenderer>().material = idleColor;
     }
 }

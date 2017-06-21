@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141c4d6066bdb7a4692ffcd6d41f6d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSpace: {fileID: 0}
 --- !u!114 &114000010914262858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,6 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141c4d6066bdb7a4692ffcd6d41f6d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSpace: {fileID: 4000014120857644}
 --- !u!114 &114000012371376428
 MonoBehaviour:
   m_ObjectHideFlags: 1

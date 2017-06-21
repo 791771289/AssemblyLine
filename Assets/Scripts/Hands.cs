@@ -9,10 +9,29 @@ public class Hands : MonoBehaviour {
     private SteamVR_TrackedObject trackedObj;
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
 
+    // Variable to store whther or not the player wants to adjust their placement relative to the Line
+    private bool changingSpace;
+
+    // The Transform to store the playspace so the changingSpace variable has something to manipulatew
+    public Transform playSpace;
+
+    // Step for how much the transform moves everytime the switch is pressesd
+    private float stepOffeset = .03f;
+
     void Start()
     {
         // Pull components from the steamvr object
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+
+        changingSpace = false;
+    }
+
+    void Update()
+    {
+        // Add playspace controls if button is pressed
+        if (changingSpace)
+            UpdatePlayspaceControls();
+
     }
 
     // Scans the collider for other colliders
@@ -44,6 +63,40 @@ public class Hands : MonoBehaviour {
                 // "Throw" the object by giving it a velocity and angular velocity
                 colRB.velocity = controller.velocity;
                 colRB.angularVelocity = controller.angularVelocity;
+            }
+        }
+    }
+
+    // This method is called when the player presses on the "changing playspace adjustment"
+    // to move the playspace closer or away from the assembly line
+    public void FlipHandControls(PlayspaceSwitch x)
+    {
+        changingSpace = !changingSpace;
+
+        // Change playspace siwtch materials to match current state
+        if (changingSpace)
+        {
+            x.Highlight();
+        } else
+        {
+            x.Reset();
+        }
+    }
+
+    void UpdatePlayspaceControls()
+    {
+        // If the touchpad is pressed
+        if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            Debug.Log("Y - axis: " + controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y);
+
+            // If the vertical position of your finger on the press is greater than 0, move closer to the line
+           if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y > 0)
+            {
+                playSpace.position += new Vector3(0f, 0f, -stepOffeset);
+            } else
+            {
+                playSpace.position += new Vector3(0f, 0f, stepOffeset);
             }
         }
     }
