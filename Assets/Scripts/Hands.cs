@@ -13,11 +13,20 @@ public class Hands : MonoBehaviour
     // Variable to store whther or not the player wants to adjust their placement relative to the Line
     private bool changingSpace;
 
-    // The Transform to store the playspace so the changingSpace variable has something to manipulatew
+    // Variable to store whther or not the player wants to adjust the line relative to the ground
+    private bool changingLine;
+
+    // The Transform to store the playspace so the changingSpace variable has something to manipulate
     public Transform playSpace;
 
+    // The Transform to store the main assembly line so the changingLine variable has something to manipulate
+    public Transform mainAssemblyLine;
+
     // Step for how much the transform moves everytime the switch is pressesd
-    private float stepOffeset = .03f;
+    private float stepOffeset = .075f;
+
+    // Step for how much the transform moves everytime the switch is pressesd
+    private float lineOffeset = .08f;
 
     void Start()
     {
@@ -25,6 +34,7 @@ public class Hands : MonoBehaviour
         trackedObj = GetComponent<SteamVR_TrackedObject>();
 
         changingSpace = false;
+        changingLine = false;
     }
 
     void Update()
@@ -32,6 +42,10 @@ public class Hands : MonoBehaviour
         // Add playspace controls if button is pressed
         if (changingSpace)
             UpdatePlayspaceControls();
+
+        // Add assemblyLine controls if button is pressed
+        if (changingLine)
+            UpdateAssemblyLineControls();
 
         UpdateMenuButton();
     }
@@ -120,6 +134,23 @@ public class Hands : MonoBehaviour
         }
     }
 
+    // This method is called when the player presses on the "changing playspace adjustment"
+    // to move the playspace closer or away from the assembly line
+    public void FlipHandControls(AssemblyLineSwitch x)
+    {
+        changingLine = !changingLine;
+
+        // Change playspace siwtch materials to match current state
+        if (changingLine)
+        {
+            x.Highlight();
+        }
+        else
+        {
+            x.Reset();
+        }
+    }
+
     void UpdatePlayspaceControls()
     {
         // If the touchpad is pressed
@@ -135,6 +166,25 @@ public class Hands : MonoBehaviour
             else
             {
                 playSpace.position += new Vector3(0f, 0f, stepOffeset);
+            }
+        }
+    }
+
+    void UpdateAssemblyLineControls()
+    {
+        // If the touchpad is pressed
+        if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            Debug.Log("Y - axis: " + controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y);
+
+            // If the vertical position of your finger on the press is greater than 0, move closer to the line
+            if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y > 0)
+            {
+                mainAssemblyLine.position += new Vector3(0f, lineOffeset, 0f);
+            }
+            else
+            {
+                mainAssemblyLine.position += new Vector3(0f, -lineOffeset, 0f);
             }
         }
     }
