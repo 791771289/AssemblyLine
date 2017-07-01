@@ -822,6 +822,7 @@ MonoBehaviour:
   - candySpawning: {fileID: 1000014105395706, guid: a4486f2e45b3f9b479b923ea2ab90ba8,
       type: 2}
     numCandiesSpawned: 2
+    timeStartSpawning: 6
     timeBetweenCandies: 0.5
   - candySpawning: {fileID: 1000011022395786, guid: 54ab587ac3d35854d9c638962b4cb57d,
       type: 2}

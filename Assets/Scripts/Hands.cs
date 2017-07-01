@@ -22,11 +22,19 @@ public class Hands : MonoBehaviour
     // The Transform to store the main assembly line so the changingLine variable has something to manipulate
     public Transform mainAssemblyLine;
 
+    // The two switches that are contolled by the play
+    public AssemblyLineSwitch assemblyLineSwitch;
+    public PlayspaceSwitch playSpaceSwitch;
+
     // Step for how much the transform moves everytime the switch is pressesd
     private float stepOffeset = .075f;
 
     // Step for how much the transform moves everytime the switch is pressesd
     private float lineOffeset = .08f;
+
+    // Variable to hold starting childdren count when keeping track of grabbable objects to 
+    // prevent multiple objects grabbed at same time
+    private int startingChildCount;
 
     void Start()
     {
@@ -35,6 +43,8 @@ public class Hands : MonoBehaviour
 
         changingSpace = false;
         changingLine = false;
+
+        startingChildCount = transform.childCount;
     }
 
     void Update()
@@ -48,6 +58,7 @@ public class Hands : MonoBehaviour
             UpdateAssemblyLineControls();
 
         UpdateMenuButton();
+
     }
 
     private void UpdateMenuButton()
@@ -87,6 +98,8 @@ public class Hands : MonoBehaviour
     // Scans the collider for other colliders
     void OnTriggerStay(Collider col)
     {
+        Debug.Log("Child Count : " + transform.childCount);
+
         // If the object is a part of a GrabbableObject class and can be picked up
         if (col.transform.GetComponent<GrabbableObject>() != null)
         {
@@ -94,7 +107,7 @@ public class Hands : MonoBehaviour
             Rigidbody colRB = col.transform.GetComponent<Rigidbody>();
 
             // If the player wants to control the object by holding the trigger down
-            if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+            if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Trigger) && transform.childCount <= startingChildCount)
             {
                 // Set the parent object to the controller transform
                 col.transform.parent = transform;
@@ -127,6 +140,10 @@ public class Hands : MonoBehaviour
         if (changingSpace)
         {
             x.Highlight();
+
+            // Revert the other switch as obsolete so you do not control both as once
+            changingLine = false;
+            assemblyLineSwitch.Reset();
         }
         else
         {
@@ -144,6 +161,10 @@ public class Hands : MonoBehaviour
         if (changingLine)
         {
             x.Highlight();
+
+            // Revert the other switch as obsolete so you do not control both as once
+            changingSpace = false;
+            playSpaceSwitch.Reset();
         }
         else
         {
