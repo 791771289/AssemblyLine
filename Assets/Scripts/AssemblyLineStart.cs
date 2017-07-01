@@ -13,7 +13,7 @@ public class AssemblyLineStart : MonoBehaviour
     void Start()
     {
         // Start spawning
-        StartCoroutine(SpawnCandy(.3f, .15f));
+        StartCoroutine(SpawnCandy(.2f, 1f));
     }
 
     IEnumerator SpawnCandy(float refreshRate, float timeBetweenSpawns)

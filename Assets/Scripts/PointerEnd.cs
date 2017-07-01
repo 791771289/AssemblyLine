@@ -21,16 +21,23 @@ public class PointerEnd : MonoBehaviour {
     {
 
         // IF the Controller trigger is pressed and the pointer is on the UI element
-        if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Trigger) && transform.localPosition != Vector3.zero)
+        if (controller.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && transform.localPosition != Vector3.zero)
         {
-            // Pull any UI components
+            // Pull any UI components that are possible
             PlayspaceSwitch playSpace = col.transform.GetComponent<PlayspaceSwitch>();
+            Level level = col.transform.GetComponent<Level>();
 
             if (playSpace != null)
             {
-                Debug.Log("TEST HIT");
+                Debug.Log("HIT Playspace");
                 hands.FlipHandControls(playSpace);
                 return;
+            }
+
+            if(level != null)
+            {
+                Debug.Log("HIT level");
+                level.StartSpawningCandy();
             }
         }
     }

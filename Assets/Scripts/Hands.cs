@@ -3,7 +3,8 @@ using System.Collections;
 
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 [RequireComponent(typeof(SphereCollider))]
-public class Hands : MonoBehaviour {
+public class Hands : MonoBehaviour
+{
 
     // Pull the steamvr tracked controller from the prefab object
     private SteamVR_TrackedObject trackedObj;
@@ -38,7 +39,7 @@ public class Hands : MonoBehaviour {
     void OnTriggerStay(Collider col)
     {
         // If the object is a part of a GrabbableObject class and can be picked up
-        if(col.transform.GetComponent<GrabbableObject>() != null)
+        if (col.transform.GetComponent<GrabbableObject>() != null)
         {
             // Grabs the collider's rigidbody
             Rigidbody colRB = col.transform.GetComponent<Rigidbody>();
@@ -77,7 +78,8 @@ public class Hands : MonoBehaviour {
         if (changingSpace)
         {
             x.Highlight();
-        } else
+        }
+        else
         {
             x.Reset();
         }
@@ -91,14 +93,14 @@ public class Hands : MonoBehaviour {
             Debug.Log("Y - axis: " + controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y);
 
             // If the vertical position of your finger on the press is greater than 0, move closer to the line
-           if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y > 0)
+            if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y > 0)
             {
                 playSpace.position += new Vector3(0f, 0f, -stepOffeset);
-            } else
+            }
+            else
             {
                 playSpace.position += new Vector3(0f, 0f, stepOffeset);
             }
         }
     }
 }
-
