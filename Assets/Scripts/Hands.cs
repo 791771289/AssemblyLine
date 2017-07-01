@@ -33,6 +33,41 @@ public class Hands : MonoBehaviour
         if (changingSpace)
             UpdatePlayspaceControls();
 
+        UpdateMenuButton();
+    }
+
+    private void UpdateMenuButton()
+    {
+        // Scan for if the player wants to end the level they're on by pressing the menu button
+        if (controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
+        {
+            bool interrupted = false;
+            for (int i = 0; i < GameObject.FindObjectsOfType<Level>().Length; i++)
+            {
+                interrupted = GameObject.FindObjectsOfType<Level>()[i].enabled;
+            }
+
+            if (interrupted)
+            {
+                Debug.Log("Level Interrupted");
+                for (int i = 0; i < GameObject.FindObjectsOfType<Level>().Length; i++)
+                {
+                    if (GameObject.FindObjectsOfType<Level>()[i].enabled)
+                    {
+                        // Stop spawning candy for this level and reenable all other levels to be selected
+                        GameObject.FindObjectsOfType<Level>()[i].FinishSpawningCandy();
+                        GameObject.FindObjectsOfType<Level>()[i].ScanLevels(true);
+
+                        //Destroy all remaining candy
+                        for(int j = 0; j < GameObject.FindObjectsOfType<Candy>().Length; j++)
+                        {
+                            Destroy(GameObject.FindObjectsOfType<Candy>()[j].gameObject);
+                        }
+                    }
+
+                }
+            }
+        }
     }
 
     // Scans the collider for other colliders

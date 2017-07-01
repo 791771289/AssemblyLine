@@ -28,6 +28,8 @@ public class Level : MonoBehaviour {
         // Reset counter
         count = 0;
         spawningCandy = false;
+
+        
     }
 
     void FixedUpdate()
@@ -48,6 +50,25 @@ public class Level : MonoBehaviour {
                     StartCoroutine(SpawnCandy(instance));
                 }
             }
+
+            // Set all other level objects to disabled
+            ScanLevels(false);
+        } else
+        {
+            // Set all other level objects to disabled
+            ScanLevels(true);
+        }
+    }
+
+    public void ScanLevels(bool setValue)
+    {
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            Level scannedLevel = transform.parent.GetChild(i).GetComponent<Level>();
+            if (!scannedLevel.Equals(this))
+            {
+                scannedLevel.enabled = setValue;
+            }
         }
     }
 
@@ -55,6 +76,12 @@ public class Level : MonoBehaviour {
     public void StartSpawningCandy()
     {
         spawningCandy = true;
+    }
+
+    // Method sent to start spawning candy
+    public void FinishSpawningCandy()
+    {
+        spawningCandy = false;
     }
 
     public IEnumerator SpawnCandy(SpawnCandyInstance instance)
@@ -85,7 +112,7 @@ public class Level : MonoBehaviour {
         if (instancesDone == spawningCandies.Length)
         {
             Debug.Log("LEVEL FINISHED");
-            spawningCandy = false;
+            FinishSpawningCandy();
         }
 
         yield break;

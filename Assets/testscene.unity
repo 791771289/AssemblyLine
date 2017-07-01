@@ -847,7 +847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014120857644, guid: ca792dafa2add554d99941a0b1757681, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.721
+      value: 0.431
       objectReference: {fileID: 0}
     - target: {fileID: 4000014120857644, guid: ca792dafa2add554d99941a0b1757681, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1123,11 +1123,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010159597698, guid: 7fefb57fdef66e64abdae38707561f3d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fefb57fdef66e64abdae38707561f3d, type: 2}
   m_IsPrefabParent: 0
@@ -1138,11 +1133,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4000010810082818, guid: b2bd96a43c8e3a541b360d1bb30a5b7a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1200,74 +1190,6 @@ Prefab:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1550318045}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[0].candySpawning
-      value: 
-      objectReference: {fileID: 1000014105395706, guid: a4486f2e45b3f9b479b923ea2ab90ba8,
-        type: 2}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[1].candySpawning
-      value: 
-      objectReference: {fileID: 1000011022395786, guid: 54ab587ac3d35854d9c638962b4cb57d,
-        type: 2}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[0].numCandiesSpawned
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[0].timeStartSpawning
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[1].numCandiesSpawned
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[1].timeBetweenCandies
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[0].timeBetweenCandies
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[1].timeStartSpawning
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[0].isCandySpawning
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[2].candySpawning
-      value: 
-      objectReference: {fileID: 1000012215833736, guid: c6a805bb5e0c72348a00ebe0952ae271,
-        type: 2}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[2].numCandiesSpawned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[2].timeStartSpawning
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010635253654, guid: b2bd96a43c8e3a541b360d1bb30a5b7a,
-        type: 2}
-      propertyPath: spawningCandies.Array.data[2].timeBetweenCandies
-      value: 0.75
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2bd96a43c8e3a541b360d1bb30a5b7a, type: 2}
   m_IsPrefabParent: 0
