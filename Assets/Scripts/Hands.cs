@@ -5,7 +5,6 @@ using System.Collections;
 [RequireComponent(typeof(SphereCollider))]
 public class Hands : MonoBehaviour
 {
-
     // Pull the steamvr tracked controller from the prefab object
     private SteamVR_TrackedObject trackedObj;
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
@@ -27,7 +26,7 @@ public class Hands : MonoBehaviour
     public PlayspaceSwitch playSpaceSwitch;
 
     // Step for how much the transform moves everytime the switch is pressesd
-    private float stepOffeset = .075f;
+    private float stepOffeset = .1f;
 
     // Step for how much the transform moves everytime the switch is pressesd
     private float lineOffeset = .08f;
@@ -98,7 +97,6 @@ public class Hands : MonoBehaviour
     // Scans the collider for other colliders
     void OnTriggerStay(Collider col)
     {
-        Debug.Log("Child Count : " + transform.childCount);
 
         // If the object is a part of a GrabbableObject class and can be picked up
         if (col.transform.GetComponent<GrabbableObject>() != null)
@@ -177,7 +175,6 @@ public class Hands : MonoBehaviour
         // If the touchpad is pressed
         if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
         {
-            Debug.Log("Y - axis: " + controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y);
 
             // If the vertical position of your finger on the press is greater than 0, move closer to the line
             if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y > 0)
@@ -188,6 +185,10 @@ public class Hands : MonoBehaviour
             {
                 playSpace.position += new Vector3(0f, 0f, stepOffeset);
             }
+
+            // Clamp the playspace position to a single area
+            float zPos = Mathf.Clamp(playSpace.position.z, -1.2f, .6f);
+            playSpace.position = new Vector3(playSpace.position.x, playSpace.position.y, zPos);
         }
     }
 
@@ -196,7 +197,6 @@ public class Hands : MonoBehaviour
         // If the touchpad is pressed
         if (controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
         {
-            Debug.Log("Y - axis: " + controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y);
 
             // If the vertical position of your finger on the press is greater than 0, move closer to the line
             if (controller.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad).y > 0)
@@ -207,6 +207,16 @@ public class Hands : MonoBehaviour
             {
                 mainAssemblyLine.position += new Vector3(0f, -lineOffeset, 0f);
             }
+
+            // Clamp the assemblyline position to a single area
+            float yPos = Mathf.Clamp(mainAssemblyLine.position.y, .45f, 1f);
+            mainAssemblyLine.position = new Vector3(mainAssemblyLine.position.x, yPos, mainAssemblyLine.position.z);
         }
+    }
+
+    // Return the current controller used by this hand
+    public SteamVR_Controller.Device getController()
+    {
+        return controller;
     }
 }

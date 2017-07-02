@@ -24,6 +24,8 @@ public class Pointer : MonoBehaviour {
     private SteamVR_TrackedObject trackedObj;
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
 
+    private int count;
+
     void Start()
     {
         // Grabbing components from the game object
@@ -35,6 +37,8 @@ public class Pointer : MonoBehaviour {
         // Update pointer's attributes
         lineRenderer.SetWidth(lineWidth, lineWidth);
         lineRenderer.material = lineMaterial;
+
+        count = 0;
     }
 
     void Update()
@@ -42,7 +46,7 @@ public class Pointer : MonoBehaviour {
         // Send out a ray to detect where the pointer should be pointing
         Ray ray = new Ray(startPoint.position, startPoint.forward);
         RaycastHit hit;
-        bool hitting = Physics.Raycast(ray, out hit, lineLength, 1);
+        bool hitting = Physics.Raycast(ray, out hit, lineLength, 5);
 
         // Constantly updated set points on the line
         lineRenderer.SetPosition(0, startPoint.position);
@@ -56,16 +60,29 @@ public class Pointer : MonoBehaviour {
     void UpdateCursorLine(bool hitting, RaycastHit hit)
     {
         // If hitting and the tags match what the point wants to point at
-        if (hitting && hit.transform.tag == "UI")
+        if (hitting && (hit.transform.tag == "UI" || hit.transform.tag == "Trigger"))
         {
             // Line Enabled
             endPoint.position = hit.point;
+
+            if(count < 1 && hit.transform.tag == "Trigger")
+            {
+                SteamVR_Controller.Device controller = GetComponent<Hands>().getController();
+                controller.TriggerHapticPulse(500);
+
+                count++;
+            } else if(hit.transform.tag == "UI")
+            {
+                count = 0;
+            }
         }
         else
         {
             // Line disabled
             endPoint.localPosition = Vector3.zero;
             endPoint.transform.localScale = Vector3.zero;
+
+            count = 0;
         }
 
     }
