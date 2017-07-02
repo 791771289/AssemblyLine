@@ -12,9 +12,9 @@ public class AssemblyLineEnd : MonoBehaviour {
     public ENDTYPE currentEndType = ENDTYPE.CUBE;
 
     // Number of candies that pass through this endpoint
-    private static int goodCandyCount;
-    private static int badCandyCount;
-    private static int originalCandyCount;
+    public static int goodCandyCount;
+    public static int badCandyCount;
+    public static int originalCandyCount;
 
     // Initialization
     void Start()
