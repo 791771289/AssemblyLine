@@ -67,4 +67,11 @@ public class AssemblyLineEnd : MonoBehaviour {
         // Destroy the game object after it has been scored and recorded
         Destroy(col.gameObject);
     }
+
+    public static void Reset()
+    {
+        goodCandyCount = 0;
+        badCandyCount = 0;
+        originalCandyCount = 0;
+    }
 }

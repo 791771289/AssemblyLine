@@ -28,8 +28,7 @@ public class Level : MonoBehaviour {
         // Reset counter
         count = 0;
         spawningCandy = false;
-
-        
+     
     }
 
     void FixedUpdate()
@@ -82,6 +81,12 @@ public class Level : MonoBehaviour {
     public void FinishSpawningCandy()
     {
         spawningCandy = false;
+
+        // Destroy remaining candies
+        for(int i = 0; i < GameObject.FindObjectsOfType<Candy>().Length; i++)
+        {
+            Destroy(GameObject.FindObjectsOfType<Candy>()[i].gameObject);
+        }
     }
 
     public IEnumerator SpawnCandy(SpawnCandyInstance instance)
@@ -113,8 +118,11 @@ public class Level : MonoBehaviour {
         {
             Debug.Log("LEVEL FINISHED");
             FinishSpawningCandy();
+            AssemblyLineEnd.Reset();
         }
 
         yield break;
     }
+
+    
 }
