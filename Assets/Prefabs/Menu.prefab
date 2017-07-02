@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000013202870344}
   m_Layer: 0
   m_Name: Level04Background
-  m_TagString: UI
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - 114: {fileID: 114000011685346782}
   m_Layer: 0
   m_Name: Level05Background
-  m_TagString: UI
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - 114: {fileID: 114000013130797762}
   m_Layer: 0
   m_Name: Level03Background
-  m_TagString: UI
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   - 114: {fileID: 114000013887132416}
   m_Layer: 0
   m_Name: Level02Background
-  m_TagString: UI
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ GameObject:
   - 114: {fileID: 114000010635253654}
   m_Layer: 0
   m_Name: Level01Background
-  m_TagString: UI
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
