@@ -26,9 +26,14 @@ public class SpawnCandyInstance {
         return isCandySpawning;
     }
 
-    // SEt the candy instance to "it is spawning"
+    // Set the candy instance to "it is spawning"
     public void CandySpawning()
     {
         isCandySpawning = true;
+    }
+
+    public void CandyNotSpawning()
+    {
+        isCandySpawning = false;
     }
 }

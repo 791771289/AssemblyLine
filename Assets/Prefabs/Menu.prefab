@@ -22,7 +22,7 @@ GameObject:
   - 33: {fileID: 33000013136033096}
   - 65: {fileID: 65000012786940694}
   - 23: {fileID: 23000012065658224}
-  - 114: {fileID: 114000013202870344}
+  - 114: {fileID: 114000013597873374}
   m_Layer: 0
   m_Name: Level04Background
   m_TagString: Trigger
@@ -41,7 +41,7 @@ GameObject:
   - 33: {fileID: 33000010573490870}
   - 65: {fileID: 65000011035571092}
   - 23: {fileID: 23000011673122442}
-  - 114: {fileID: 114000011685346782}
+  - 114: {fileID: 114000012624769220}
   m_Layer: 0
   m_Name: Level05Background
   m_TagString: Trigger
@@ -60,7 +60,7 @@ GameObject:
   - 33: {fileID: 33000012546504554}
   - 65: {fileID: 65000012472063128}
   - 23: {fileID: 23000012966427758}
-  - 114: {fileID: 114000013130797762}
+  - 114: {fileID: 114000010691493796}
   m_Layer: 0
   m_Name: Level03Background
   m_TagString: Trigger
@@ -97,7 +97,7 @@ GameObject:
   - 33: {fileID: 33000010380825772}
   - 65: {fileID: 65000012807429568}
   - 23: {fileID: 23000013610715830}
-  - 114: {fileID: 114000013887132416}
+  - 114: {fileID: 114000011745964714}
   m_Layer: 0
   m_Name: Level02Background
   m_TagString: Trigger
@@ -253,7 +253,7 @@ GameObject:
   - 33: {fileID: 33000012797940668}
   - 65: {fileID: 65000012874532542}
   - 23: {fileID: 23000012950866904}
-  - 114: {fileID: 114000010635253654}
+  - 114: {fileID: 114000013902372152}
   m_Layer: 0
   m_Name: Level01Background
   m_TagString: Trigger
@@ -321,7 +321,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011513333506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.234, y: 0.34300002, z: -0.52000046}
+  m_LocalPosition: {x: -0.234, y: 0.34300002, z: -0.69}
   m_LocalScale: {x: 0.13106643, y: 0.22530381, z: 0.21463923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -335,7 +335,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010714467548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.278, y: 0.34300002, z: -0.52000046}
+  m_LocalPosition: {x: 0.278, y: 0.34300002, z: -0.69}
   m_LocalScale: {x: 0.13106643, y: 0.22530381, z: 0.21463923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -363,7 +363,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013436795984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.404, y: 0.343, z: -0.52}
+  m_LocalPosition: {x: -0.404, y: 0.343, z: -0.69}
   m_LocalScale: {x: 0.13106643, y: 0.22530381, z: 0.21463923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -377,7 +377,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011436983584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.062, y: 0.34300002, z: -0.52000046}
+  m_LocalPosition: {x: -0.062, y: 0.34300002, z: -0.69}
   m_LocalScale: {x: 0.13106643, y: 0.22530381, z: 0.21463923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -391,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010688114958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.112, y: 0.34300002, z: -0.52000046}
+  m_LocalPosition: {x: 0.112, y: 0.34300002, z: -0.69}
   m_LocalScale: {x: 0.13106643, y: 0.22530381, z: 0.21463923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -458,7 +458,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f2fffa57f41d6784da86b19cb9e8f695, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -487,7 +487,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f2fffa57f41d6784da86b19cb9e8f695, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -516,7 +516,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f2fffa57f41d6784da86b19cb9e8f695, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -545,7 +545,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f2fffa57f41d6784da86b19cb9e8f695, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -574,7 +574,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f2fffa57f41d6784da86b19cb9e8f695, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -806,34 +806,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 2
---- !u!114 &114000010635253654
+--- !u!114 &114000010691493796
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013436795984}
+  m_GameObject: {fileID: 1000011436983584}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelID: 3
+  timeLeft: 5
+  unlockedMat: {fileID: 2100000, guid: 62acdcd9b7aa9b540bdfbe1f812f219e, type: 2}
   spawnPoint: {fileID: 0}
-  spawningCandies:
-  - candySpawning: {fileID: 1000014105395706, guid: a4486f2e45b3f9b479b923ea2ab90ba8,
-      type: 2}
-    numCandiesSpawned: 2
-    timeStartSpawning: 6
-    timeBetweenCandies: 0.5
-  - candySpawning: {fileID: 1000011022395786, guid: 54ab587ac3d35854d9c638962b4cb57d,
-      type: 2}
-    numCandiesSpawned: 2
-    timeStartSpawning: 1
-    timeBetweenCandies: 0.75
-  - candySpawning: {fileID: 1000012215833736, guid: c6a805bb5e0c72348a00ebe0952ae271,
-      type: 2}
-    numCandiesSpawned: 1
-    timeStartSpawning: 0
-    timeBetweenCandies: 0.75
+  spawningCandies: []
 --- !u!114 &114000011659866712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -867,19 +855,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3
---- !u!114 &114000011685346782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010714467548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  spawningCandies: []
 --- !u!114 &114000011701409792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -913,6 +888,27 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 4
+--- !u!114 &114000011745964714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011513333506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelID: 2
+  timeLeft: 5
+  unlockedMat: {fileID: 2100000, guid: 62acdcd9b7aa9b540bdfbe1f812f219e, type: 2}
+  spawnPoint: {fileID: 0}
+  spawningCandies:
+  - candySpawning: {fileID: 1000012215833736, guid: c6a805bb5e0c72348a00ebe0952ae271,
+      type: 2}
+    numCandiesSpawned: 3
+    timeStartSpawning: 0
+    timeBetweenCandies: 0.2
 --- !u!114 &114000012549026988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -946,6 +942,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!114 &114000012624769220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010714467548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelID: 5
+  timeLeft: 5
+  unlockedMat: {fileID: 2100000, guid: 62acdcd9b7aa9b540bdfbe1f812f219e, type: 2}
+  spawnPoint: {fileID: 0}
+  spawningCandies: []
 --- !u!114 &114000012722516522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1016,20 +1028,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114000013130797762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011436983584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  spawningCandies: []
---- !u!114 &114000013202870344
+--- !u!114 &114000013597873374
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1040,6 +1039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelID: 4
+  timeLeft: 5
+  unlockedMat: {fileID: 2100000, guid: 62acdcd9b7aa9b540bdfbe1f812f219e, type: 2}
   spawnPoint: {fileID: 0}
   spawningCandies: []
 --- !u!114 &114000013702225326
@@ -1100,19 +1102,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114000013887132416
+--- !u!114 &114000013902372152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011513333506}
+  m_GameObject: {fileID: 1000013436795984}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 639f538508473234786a3ac989d3b4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelID: 1
+  timeLeft: 5
+  unlockedMat: {fileID: 2100000, guid: 62acdcd9b7aa9b540bdfbe1f812f219e, type: 2}
   spawnPoint: {fileID: 0}
-  spawningCandies: []
+  spawningCandies:
+  - candySpawning: {fileID: 1000014105395706, guid: a4486f2e45b3f9b479b923ea2ab90ba8,
+      type: 2}
+    numCandiesSpawned: 2
+    timeStartSpawning: 6
+    timeBetweenCandies: 0.5
+  - candySpawning: {fileID: 1000011022395786, guid: 54ab587ac3d35854d9c638962b4cb57d,
+      type: 2}
+    numCandiesSpawned: 2
+    timeStartSpawning: 1
+    timeBetweenCandies: 0.75
+  - candySpawning: {fileID: 1000012215833736, guid: c6a805bb5e0c72348a00ebe0952ae271,
+      type: 2}
+    numCandiesSpawned: 1
+    timeStartSpawning: 0
+    timeBetweenCandies: 0.75
 --- !u!114 &114000013932017500
 MonoBehaviour:
   m_ObjectHideFlags: 1

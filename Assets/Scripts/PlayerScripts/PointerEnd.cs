@@ -10,6 +10,7 @@ public class PointerEnd : MonoBehaviour {
     // Parent hands for controller feedback
     private Hands hands;
 
+    // All components that the pointer can interact with
     private AssemblyLineSwitch assemblyLineSpace;
     private PlayspaceSwitch playSpace;
     private Level level;
@@ -55,7 +56,7 @@ public class PointerEnd : MonoBehaviour {
             if(level != null)
             {
                 Debug.Log("HIT level");
-                level.StartSpawningCandy();
+                level.StartLevel();
                 return;
             }
         }

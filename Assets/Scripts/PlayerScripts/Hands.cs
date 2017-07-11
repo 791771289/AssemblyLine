@@ -65,6 +65,7 @@ public class Hands : MonoBehaviour
         // Scan for if the player wants to end the level they're on by pressing the menu button
         if (controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
+            Debug.Log("Menu button Pressed");
             bool interrupted = false;
             for (int i = 0; i < GameObject.FindObjectsOfType<Level>().Length; i++)
             {
@@ -81,12 +82,6 @@ public class Hands : MonoBehaviour
                         // Stop spawning candy for this level and reenable all other levels to be selected
                         GameObject.FindObjectsOfType<Level>()[i].FinishSpawningCandy();
                         GameObject.FindObjectsOfType<Level>()[i].ScanLevels(true);
-
-                        //Destroy all remaining candy
-                        for(int j = 0; j < GameObject.FindObjectsOfType<Candy>().Length; j++)
-                        {
-                            Destroy(GameObject.FindObjectsOfType<Candy>()[j].gameObject);
-                        }
                     }
 
                 }

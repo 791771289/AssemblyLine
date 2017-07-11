@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
 public class Level : MonoBehaviour {
+
+    [Header("Level Attributes")]
+    // Level Number ID
+    public int levelID = 1;
+
+    // Time after all candies have spawned for player to finish level
+    public float timeLeft = 5f;
+    
+    // Materials to keep track of locked or not
+    public Material unlockedMat;
+    private bool locked;
 
     // Main AssemblyLine Start spawn point
     public Transform spawnPoint;
 
+    [Header("Spawning Candies")]
     // All of the candy spawning for this level includiong all
     // SpawnCandyInstance attributes
     public SpawnCandyInstance[] spawningCandies;
@@ -23,18 +34,27 @@ public class Level : MonoBehaviour {
     // Keeping track of the amount of candy instances that are spawned onto the line
     private int instancesDone = 0;
 
+    // LevelProgress to save data
+    private LevelProgress levelProgress;
+
     void Start()
     {
         // Reset counter
         count = 0;
         spawningCandy = false;
-     
+
+        if (levelID == 1)
+            UnlockLevel();
+        else
+            locked = true;
+
+        levelProgress = GameObject.FindObjectOfType<LevelProgress>();
     }
 
     void FixedUpdate()
     {
         // If the level was selected to start spawning candy
-        if (spawningCandy)
+        if (spawningCandy && locked == false)
         {
             // Start counting up
             count += Time.deltaTime;
@@ -52,27 +72,43 @@ public class Level : MonoBehaviour {
 
             // Set all other level objects to disabled
             ScanLevels(false);
-        } else
-        {
-            // Set all other level objects to disabled
-            ScanLevels(true);
         }
+
     }
 
+    // This method is designated to enable or disable all level buttons when a level is currently in play
     public void ScanLevels(bool setValue)
     {
+        // Set all levels to enabled or disabled if it has a "Level" componenet
         for (int i = 0; i < transform.parent.childCount; i++)
         {
             Level scannedLevel = transform.parent.GetChild(i).GetComponent<Level>();
-            if (!scannedLevel.Equals(this))
+            if(scannedLevel != null)
             {
-                scannedLevel.enabled = setValue;
+                if (!scannedLevel.Equals(this))
+                {
+                    scannedLevel.enabled = setValue;
+                }
             }
+            
         }
     }
 
+    // Return if the level is locked
+    public bool isLocked()
+    {
+        return locked;
+    }
+
+    // Unlock the level from aan outside class
+    public void UnlockLevel()
+    {
+        locked = false;
+        GetComponent<MeshRenderer>().material = unlockedMat;
+    }
+
     // Method sent to start spawning candy
-    public void StartSpawningCandy()
+    public void StartLevel()
     {
         spawningCandy = true;
     }
@@ -80,10 +116,22 @@ public class Level : MonoBehaviour {
     // Method sent to start spawning candy
     public void FinishSpawningCandy()
     {
+        count = 0;
+        instancesDone = 0;
         spawningCandy = false;
 
+        AssemblyLineEnd.Reset();
+        ScanLevels(true);
+        levelProgress.SaveData(levelID, 0, 0);
+
+        // Scan all of the candy to be spawned in the level to reset instances
+        foreach (SpawnCandyInstance instance in spawningCandies)
+        {
+            instance.CandyNotSpawning();
+        }
+
         // Destroy remaining candies
-        for(int i = 0; i < GameObject.FindObjectsOfType<Candy>().Length; i++)
+        for (int i = 0; i < GameObject.FindObjectsOfType<Candy>().Length; i++)
         {
             Destroy(GameObject.FindObjectsOfType<Candy>()[i].gameObject);
         }
@@ -116,9 +164,12 @@ public class Level : MonoBehaviour {
         // If all candy spaning instances are donw spawning
         if (instancesDone == spawningCandies.Length)
         {
+            // Time given to player to react
+            yield return new WaitForSeconds(timeLeft);
+
+            // Wrap up level
             Debug.Log("LEVEL FINISHED");
             FinishSpawningCandy();
-            AssemblyLineEnd.Reset();
         }
 
         yield break;
